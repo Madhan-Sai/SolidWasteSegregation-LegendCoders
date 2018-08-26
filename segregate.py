@@ -1,15 +1,4 @@
-# Convolutional Neural Network
-
-# Installing Theano
-# pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
-
-# Installing Tensorflow
-# pip install tensorflow
-
-# Installing Keras
-# pip install --upgrade keras
-
-# Part 1 - Building the CNN
+# Building the CNN
 
 # Importing the Keras libraries and packages
 from keras.models import Sequential
@@ -50,7 +39,6 @@ classifier.compile(optimizer = 'adam', loss = 'sparse_categorical_crossentropy',
 # Part 2 - Fitting the CNN to the images
 
 from keras.preprocessing.image import ImageDataGenerator
-#from keras.utils.np_utils import to_categorical
 
 train_datagen = ImageDataGenerator(rescale = 1./255,
                                    shear_range = 0.2,
@@ -69,8 +57,6 @@ test_set = test_datagen.flow_from_directory('dataset/test_set',
                                             batch_size = 16,
                                             class_mode = 'binary')
 
-# training_Set = to_categorical(training_set, 10)
-# test_set = to_categorical(test_set, 10)
 
 classifier.fit_generator(training_set,
                          steps_per_epoch = 1100,
